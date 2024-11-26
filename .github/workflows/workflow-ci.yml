@@ -4,19 +4,16 @@
 name: workflow
 
 on:
+  push:
+    branches: [ "main", "develop" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
 
 jobs:
   testes:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js
